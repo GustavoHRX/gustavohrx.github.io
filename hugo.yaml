@@ -1,0 +1,53 @@
+baseURL: https://gustavohrx.github.io/
+locale: pt-br
+title: Gustavo HRX
+
+enableGitInfo: true
+
+module:
+  imports:
+    - path: github.com/imfing/hextra
+
+menu:
+  main:
+    - name: Blog
+      pageRef: /blog
+      weight: 1
+    - name: Sobre
+      pageRef: /sobre
+      weight: 2
+    - name: Buscar
+      weight: 3
+      params:
+        type: search
+    - name: GitHub
+      url: https://github.com/GustavoHRX
+      weight: 4
+      params:
+        icon: github
+
+params:
+  description: Blog pessoal de Gustavo HRX sobre tecnologia, estudos e projetos.
+  displayUpdatedDate: true
+  dateFormat: 02/01/2006
+  theme:
+    default: system
+    displayToggle: true
+  navbar:
+    displayTitle: true
+    displayLogo: false
+  page:
+    width: normal
+  blog:
+    list:
+      displayTags: true
+    article:
+      displayPagination: true
+  search:
+    enable: true
+    type: flexsearch
+    flexsearch:
+      index: content
+  editURL:
+    enable: true
+    base: https://github.com/GustavoHRX/gustavohrx.github.io/edit/main
