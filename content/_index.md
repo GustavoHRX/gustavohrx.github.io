@@ -1,11 +1,9 @@
 ---
-title: Gustavo HRX
+title: GustavoHRX
 toc: false
 sidebar:
   hide: true
 ---
-
-# Gustavo HRX
 
 Bem-vindo ao meu blog pessoal.
 
