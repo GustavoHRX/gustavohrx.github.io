@@ -1,0 +1,29 @@
+{{ define "main" }}
+  <article class="blog-archive">
+    <header class="blog-archive__header">
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}
+        <p>{{ . }}</p>
+      {{ end }}
+    </header>
+
+    {{ $posts := .RegularPagesRecursive.ByDate.Reverse }}
+    {{ if $posts }}
+      {{ range $posts.GroupByDate "January 2006" }}
+        <section class="blog-archive__month" aria-labelledby="blog-month-{{ .Key | urlize }}">
+          <h2 id="blog-month-{{ .Key | urlize }}">{{ .Key }}</h2>
+          <ol class="blog-archive__posts">
+            {{ range .Pages }}
+              <li class="blog-archive__post">
+                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02/01/2006" }}</time>
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+              </li>
+            {{ end }}
+          </ol>
+        </section>
+      {{ end }}
+    {{ else }}
+      <p class="blog-archive__empty">Ainda nao ha posts publicados.</p>
+    {{ end }}
+  </article>
+{{ end }}

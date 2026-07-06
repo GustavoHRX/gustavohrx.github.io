@@ -1,7 +1,7 @@
 ---
 title: Primeiro post
 date: 2026-06-24
-draft: true
+draft: false
 tags:
   - blog
   - hugo
