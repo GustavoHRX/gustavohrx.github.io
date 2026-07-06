@@ -1,3 +1,18 @@
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.hextra-footer {
+  margin-top: auto;
+}
+
 .hextra-nav-container nav {
   position: relative;
 }
@@ -49,15 +64,52 @@ html:has(meta[property="og:title"][content="GustavoHRX"]) .hextra-toc {
   display: none !important;
 }
 
+.home-archive,
 .blog-archive {
-  width: min(100%, 46rem);
+  width: min(100%, 58rem);
   margin-inline: auto;
   padding-block: clamp(2rem, 6vw, 4.5rem);
-  text-align: center;
+}
+
+.home-archive {
+  display: grid;
+  grid-template-columns: 13rem minmax(0, 1fr);
+  gap: clamp(2rem, 6vw, 4rem);
+  align-items: start;
+}
+
+.home-archive__toc {
+  position: sticky;
+  top: 5rem;
+  padding-right: 1.5rem;
+  border-right: 1px solid rgb(255 255 255 / 0.1);
+}
+
+.home-archive__toc h2 {
+  margin: 0 0 1rem;
+  color: rgb(229 231 235);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.home-archive__toc nav {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.home-archive__toc a {
+  color: rgb(203 213 225);
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+
+.home-archive__toc a:hover {
+  color: rgb(56 189 248);
 }
 
 .blog-archive__header {
   margin-bottom: clamp(2rem, 5vw, 3.5rem);
+  text-align: center;
 }
 
 .blog-archive__header h1 {
@@ -66,16 +118,29 @@ html:has(meta[property="og:title"][content="GustavoHRX"]) .hextra-toc {
   line-height: 1;
 }
 
+.home-archive__empty,
 .blog-archive__header p,
 .blog-archive__empty {
   margin-inline: auto;
   color: rgb(156 163 175);
 }
 
+.home-archive__month,
 .blog-archive__month {
   margin-top: clamp(2rem, 5vw, 3rem);
 }
 
+.home-archive__month {
+  margin-top: 0;
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid rgb(255 255 255 / 0.1);
+}
+
+.home-archive__month + .home-archive__month {
+  margin-top: 2rem;
+}
+
+.home-archive__month h2,
 .blog-archive__month h2 {
   margin-bottom: 1rem;
   color: rgb(229 231 235);
@@ -83,12 +148,28 @@ html:has(meta[property="og:title"][content="GustavoHRX"]) .hextra-toc {
   text-transform: capitalize;
 }
 
+.home-archive__month h2 {
+  margin: 0 0 1.25rem;
+  color: rgb(241 245 249);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.home-archive__posts,
 .blog-archive__posts {
-  display: grid;
-  gap: 0.75rem;
   margin: 0;
-  padding: 0;
-  list-style: none;
+}
+
+.home-archive__posts {
+  padding-left: 1.5rem;
+}
+
+.home-archive__posts li + li {
+  margin-top: 0.8rem;
+}
+
+.home-archive__posts a {
+  color: rgb(56 189 248);
+  font-size: clamp(1rem, 2vw, 1.15rem);
 }
 
 .blog-archive__post {
@@ -127,6 +208,18 @@ html:has(meta[property="og:title"][content="GustavoHRX"]) .hextra-toc {
   .hextra-nav-container .hextra-search-wrapper {
     width: min(10rem, 38vw) !important;
     min-width: min(10rem, 38vw);
+  }
+
+  .home-archive {
+    display: block;
+  }
+
+  .home-archive__toc {
+    position: static;
+    margin-bottom: 2rem;
+    padding: 0 0 1.25rem;
+    border-right: 0;
+    border-bottom: 1px solid rgb(255 255 255 / 0.1);
   }
 
   .blog-archive__post {

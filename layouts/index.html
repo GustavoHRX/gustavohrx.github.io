@@ -1,0 +1,37 @@
+{{ define "main" }}
+  {{ $blog := site.GetPage "section" "blog" }}
+  {{ $posts := slice }}
+  {{ with $blog }}
+    {{ $posts = .RegularPagesRecursive.ByDate.Reverse }}
+  {{ end }}
+
+  <div class="home-archive">
+    {{ if $posts }}
+      <aside class="home-archive__toc" aria-label="Nesta pagina">
+        <h2>Nesta pagina</h2>
+        <nav>
+          {{ range $posts.GroupByDate "2006 - January" }}
+            <a href="#home-month-{{ .Key | urlize }}">{{ .Key }}</a>
+          {{ end }}
+        </nav>
+      </aside>
+
+      <main class="home-archive__content">
+        {{ range $posts.GroupByDate "2006 - January" }}
+          <section class="home-archive__month" aria-labelledby="home-month-{{ .Key | urlize }}">
+            <h2 id="home-month-{{ .Key | urlize }}">{{ .Key }}</h2>
+            <ul class="home-archive__posts">
+              {{ range .Pages }}
+                <li>
+                  <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                </li>
+              {{ end }}
+            </ul>
+          </section>
+        {{ end }}
+      </main>
+    {{ else }}
+      <p class="home-archive__empty">Ainda nao ha posts publicados.</p>
+    {{ end }}
+  </div>
+{{ end }}

@@ -50,3 +50,5 @@ params:
   editURL:
     enable: true
     base: https://github.com/GustavoHRX/gustavohrx.github.io/edit/main
+  footer:
+    displayCopyright: true
