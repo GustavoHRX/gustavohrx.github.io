@@ -10,19 +10,18 @@ module:
 
 menu:
   main:
-    - name: Blog
-      pageRef: /blog
+    - name: Buscar
       weight: 1
+      params:
+        type: search
     - name: Sobre
       pageRef: /sobre
       weight: 2
-    - name: Buscar
-      weight: 3
       params:
-        type: search
+        icon: user
     - name: GitHub
       url: https://github.com/GustavoHRX
-      weight: 4
+      weight: 3
       params:
         icon: github
 

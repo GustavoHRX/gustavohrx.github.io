@@ -1,0 +1,61 @@
+.hextra-nav-container nav {
+  position: relative;
+}
+
+.hextra-nav-container nav > a:first-of-type {
+  position: absolute;
+  left: 50%;
+  margin-right: 0 !important;
+  transform: translateX(-50%);
+}
+
+.hextra-nav-container nav > a:first-of-type span {
+  margin-right: 0 !important;
+  font-size: clamp(1.5rem, 4vw, 2.8rem);
+  line-height: 1;
+  letter-spacing: 0.03em;
+}
+
+.hextra-nav-container nav > a[href="/sobre"] {
+  font-size: 0;
+}
+
+.hextra-nav-container nav > a[href="/sobre"] svg,
+.hextra-nav-container nav > a[href="https://github.com/GustavoHRX"] svg {
+  height: 1.45rem;
+  width: 1.45rem;
+}
+
+.hextra-nav-container .hextra-search-wrapper {
+  width: 13.5rem !important;
+  min-width: 13.5rem;
+}
+
+.hextra-nav-container .hextra-search-input {
+  padding-block: 0.45rem !important;
+  background: rgb(249 250 251 / 0.08) !important;
+  border: 1px solid rgb(255 255 255 / 0.08) !important;
+}
+
+.hextra-nav-container .hextra-search-input::placeholder {
+  color: rgb(229 231 235 / 0.75) !important;
+}
+
+html:has(meta[property="og:title"][content="GustavoHRX"]) #content > h1:first-child {
+  text-align: center;
+}
+
+html:has(meta[property="og:title"][content="GustavoHRX"]) .hextra-toc {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .hextra-nav-container nav > a:first-of-type span {
+    font-size: clamp(1.25rem, 7vw, 2rem);
+  }
+
+  .hextra-nav-container .hextra-search-wrapper {
+    width: min(10rem, 38vw) !important;
+    min-width: min(10rem, 38vw);
+  }
+}
