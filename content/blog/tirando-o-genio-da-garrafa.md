@@ -24,7 +24,7 @@ Enfim, tá aí um bom título para essa postagem "tirando o gênio da garrafa", 
 
 Enfim, o projeto original era para levar, no mínimo, um final de semana sossegadíssimo, visto que era só ir jogando prompt aqui, prompt ali e BOOM, já teria meu blog *up and running*, mas como tudo que eu faço nesta vida, me deixei levar e procrastinei muito, mas muito mesmo, e em duas semanas o blog estava pronto.
 
-Agora você deve estar se perguntando, porque tenho certeza de que se perguntaria: "*Mai que cara*** Gustavo, por que demorou tanto assim?*"
+Agora você deve estar se perguntando, porque tenho certeza de que se perguntaria: "*Mai que carai Gustavo, por que demorou tanto assim?*"
 
 E a resposta se encontra na ponta de minha língua...
 POR QUE SIM! HAHAHAHA
