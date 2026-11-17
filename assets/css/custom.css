@@ -84,3 +84,8 @@ body { display: flex; min-height: 100vh; flex-direction: column; }
   .home__timeline { position: static; }
   .site-footer__inner { flex-direction: column; text-align: center; }
 }
+
+/* Tags no topo do post, no estilo do Obsidian: "Tags: #a #b" */
+.post-tags { margin-left: 0.75rem; }
+.post-tags a { margin-left: 0.35rem; text-decoration: none; }
+.post-tags a:hover { text-decoration: underline; }
