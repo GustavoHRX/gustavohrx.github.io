@@ -52,3 +52,17 @@ params:
       url: https://github.com/GustavoHRX
     - name: RSS
       url: /index.xml
+  # Comentários (Giscus). Ligar "enable" depois de preencher categoryId.
+  comments:
+    enable: false
+    type: giscus
+    giscus:
+      repo: GustavoHRX/gustavohrx.github.io
+      repoId: R_kgDOSz6MUw
+      category: Announcements
+      categoryId: ""
+      mapping: pathname
+      strict: 1
+      reactionsEnabled: 1
+      inputPosition: bottom
+      lang: pt
