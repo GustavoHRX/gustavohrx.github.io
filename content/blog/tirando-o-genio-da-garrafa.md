@@ -10,8 +10,6 @@ tags:
   - projetos
 ---
 
-# Início - Hello World
-
 Declaro aqui o início desta página na internet, ou deste blog.
 
 Sendo bem sincero, não sei o que escrever aqui, apenas quero dar o pontapé inicial na publicação desta página.

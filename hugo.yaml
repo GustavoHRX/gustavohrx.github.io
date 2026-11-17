@@ -1,8 +1,9 @@
 baseURL: https://gustavohrx.github.io/
 locale: pt-br
-title: Baú de ideias
+title: The Vault
 
 enableGitInfo: true
+enableRobotsTXT: true
 
 module:
   imports:
@@ -10,20 +11,13 @@ module:
 
 menu:
   main:
-    - name: Buscar
-      weight: 1
-      params:
-        type: search
     - name: Sobre
       pageRef: /sobre
+      weight: 1
+    - name: Buscar
       weight: 2
       params:
-        icon: user
-    - name: GitHub
-      url: https://github.com/GustavoHRX
-      weight: 3
-      params:
-        icon: github
+        type: search
 
 params:
   description: Blog pessoal de Gustavo HRX sobre tecnologia, estudos e projetos.
@@ -49,6 +43,26 @@ params:
       index: content
   editURL:
     enable: true
-    base: https://github.com/GustavoHRX/gustavohrx.github.io/edit/main
+    base: https://github.com/GustavoHRX/gustavohrx.github.io/edit/main/content
   footer:
     displayCopyright: true
+    displayPoweredBy: false
+  footerLinks:
+    - name: GitHub
+      url: https://github.com/GustavoHRX
+    - name: RSS
+      url: /index.xml
+  # Comentários (Giscus)
+  comments:
+    enable: true
+    type: giscus
+    giscus:
+      repo: GustavoHRX/gustavohrx.github.io
+      repoId: R_kgDOSz6MUw
+      category: Announcements
+      categoryId: DIC_kwDOSz6MU84DLWNa
+      mapping: pathname
+      strict: 1
+      reactionsEnabled: 1
+      inputPosition: bottom
+      lang: pt

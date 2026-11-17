@@ -1,0 +1,11 @@
+<footer class="hextra-footer site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__direitos">{{ (T "copyright") | markdownify }}</div>
+    <nav class="site-footer__links" aria-label="Links">
+      {{ range site.Params.footerLinks }}
+        <a href="{{ .url }}"{{ if hasPrefix .url "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .name }}</a>
+      {{ end }}
+      {{ if site.Params.theme.displayToggle }}{{ partial "theme-toggle.html" }}{{ end }}
+    </nav>
+  </div>
+</footer>

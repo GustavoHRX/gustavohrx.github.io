@@ -1,8 +1,7 @@
 ---
 title: Sobre
 toc: false
+comments: false
 ---
-
-# Sobre
 
 teste
