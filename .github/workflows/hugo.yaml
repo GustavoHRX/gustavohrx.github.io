@@ -44,6 +44,8 @@ jobs:
         with:
           go-version-file: go.mod
           cache: true
+      - name: Converter notas do Obsidian (data, Tags e título)
+        run: python3 scripts/obsidian_para_hugo.py content/blog
       - name: Build with Hugo
         env:
           HUGO_ENVIRONMENT: production
