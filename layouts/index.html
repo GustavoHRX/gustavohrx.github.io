@@ -1,37 +1,44 @@
 {{ define "main" }}
-  {{ $blog := site.GetPage "section" "blog" }}
   {{ $posts := slice }}
-  {{ with $blog }}
+  {{ with site.GetPage "section" "blog" }}
     {{ $posts = .RegularPagesRecursive.ByDate.Reverse }}
   {{ end }}
 
-  <div class="home-archive">
-    {{ if $posts }}
-      <aside class="home-archive__toc" aria-label="Nesta pagina">
-        <h2>Nesta pagina</h2>
-        <nav>
-          {{ range $posts.GroupByDate "2006 - January" }}
-            <a href="#home-month-{{ .Key | urlize }}">{{ .Key }}</a>
+  <div class="home">
+    <section class="home__recentes" aria-labelledby="recentes">
+      <h2 id="recentes">Recentes</h2>
+      {{ with first 10 $posts }}
+        <ul class="post-list">
+          {{ range . }}
+            <li>
+              <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02/01/2006" }}</time>
+              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </li>
           {{ end }}
-        </nav>
-      </aside>
-
-      <main class="home-archive__content">
-        {{ range $posts.GroupByDate "2006 - January" }}
-          <section class="home-archive__month" aria-labelledby="home-month-{{ .Key | urlize }}">
-            <h2 id="home-month-{{ .Key | urlize }}">{{ .Key }}</h2>
-            <ul class="home-archive__posts">
-              {{ range .Pages }}
-                <li>
-                  <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-                </li>
-              {{ end }}
-            </ul>
-          </section>
+        </ul>
+        {{ if gt (len $posts) 10 }}
+          <p><a href="{{ relref $ "/blog" }}">Ver todos os posts →</a></p>
         {{ end }}
-      </main>
-    {{ else }}
-      <p class="home-archive__empty">Ainda nao ha posts publicados.</p>
+      {{ else }}
+        <p class="muted">Ainda não há posts publicados.</p>
+      {{ end }}
+    </section>
+
+    {{ with $posts }}
+      <aside class="home__timeline" aria-labelledby="timeline">
+        <h2 id="timeline">Timeline</h2>
+        {{ range .GroupByDate "2006" }}
+          <h3>{{ .Key }}</h3>
+          <ul>
+            {{ range .Pages.GroupByDate "January 2006" }}
+              <li>
+                <a href="{{ relref $ "/blog" }}#blog-month-{{ .Key | urlize }}">{{ index (split .Key " ") 0 }}</a>
+                <span class="muted">({{ len .Pages }})</span>
+              </li>
+            {{ end }}
+          </ul>
+        {{ end }}
+      </aside>
     {{ end }}
   </div>
 {{ end }}

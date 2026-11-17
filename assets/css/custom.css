@@ -1,230 +1,86 @@
-html,
-body {
-  min-height: 100%;
-}
+/* Layout simples: cabeçalho (nome + busca), conteúdo e rodapé (direitos + links). */
 
-body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
+html, body { min-height: 100%; }
+body { display: flex; min-height: 100vh; flex-direction: column; }
 
-.hextra-footer {
-  margin-top: auto;
-}
+.muted { opacity: 0.65; }
 
-.hextra-nav-container nav {
-  position: relative;
-}
-
-.hextra-nav-container nav > a:first-of-type {
-  position: absolute;
-  left: 50%;
-  margin-right: 0 !important;
-  transform: translateX(-50%);
-}
-
-.hextra-nav-container nav > a:first-of-type span {
-  margin-right: 0 !important;
-  font-size: clamp(1.5rem, 4vw, 2.8rem);
-  line-height: 1;
-  letter-spacing: 0.03em;
-}
-
-.hextra-nav-container nav > a[href="/sobre"] {
-  font-size: 0;
-}
-
-.hextra-nav-container nav > a[href="/sobre"] svg,
-.hextra-nav-container nav > a[href="https://github.com/GustavoHRX"] svg {
-  height: 1.45rem;
-  width: 1.45rem;
-}
-
-.hextra-nav-container .hextra-search-wrapper {
-  width: 13.5rem !important;
-  min-width: 13.5rem;
-}
-
-.hextra-nav-container .hextra-search-input {
-  padding-block: 0.45rem !important;
-  background: rgb(249 250 251 / 0.08) !important;
-  border: 1px solid rgb(255 255 255 / 0.08) !important;
-}
-
-.hextra-nav-container .hextra-search-input::placeholder {
-  color: rgb(229 231 235 / 0.75) !important;
-}
-
-html:has(meta[property="og:title"][content="GustavoHRX"]) #content > h1:first-child {
-  text-align: center;
-}
-
-html:has(meta[property="og:title"][content="GustavoHRX"]) .hextra-toc {
-  display: none !important;
-}
-
-.home-archive,
+/* Home: recentes à esquerda, timeline à direita */
+.home,
 .blog-archive {
-  width: min(100%, 58rem);
+  width: min(100%, 60rem);
   margin-inline: auto;
-  padding-block: clamp(2rem, 6vw, 4.5rem);
+  padding: 2.5rem 1rem;
 }
 
-.home-archive {
+.home {
   display: grid;
-  grid-template-columns: 13rem minmax(0, 1fr);
-  gap: clamp(2rem, 6vw, 4rem);
+  grid-template-columns: minmax(0, 1fr) 15rem;
+  gap: 3rem;
   align-items: start;
 }
 
-.home-archive__toc {
-  position: sticky;
-  top: 5rem;
-  padding-right: 1.5rem;
-  border-right: 1px solid rgb(255 255 255 / 0.1);
-}
-
-.home-archive__toc h2 {
+.home h2,
+.blog-archive h2 {
   margin: 0 0 1rem;
-  color: rgb(229 231 235);
-  font-size: 0.95rem;
+  font-size: 1.25rem;
   font-weight: 700;
-}
-
-.home-archive__toc nav {
-  display: grid;
-  gap: 0.55rem;
-}
-
-.home-archive__toc a {
-  color: rgb(203 213 225);
-  font-size: 0.95rem;
-  text-decoration: none;
-}
-
-.home-archive__toc a:hover {
-  color: rgb(56 189 248);
-}
-
-.blog-archive__header {
-  margin-bottom: clamp(2rem, 5vw, 3.5rem);
-  text-align: center;
-}
-
-.blog-archive__header h1 {
-  margin-bottom: 0.75rem;
-  font-size: clamp(2rem, 6vw, 4rem);
-  line-height: 1;
-}
-
-.home-archive__empty,
-.blog-archive__header p,
-.blog-archive__empty {
-  margin-inline: auto;
-  color: rgb(156 163 175);
-}
-
-.home-archive__month,
-.blog-archive__month {
-  margin-top: clamp(2rem, 5vw, 3rem);
-}
-
-.home-archive__month {
-  margin-top: 0;
-  padding-bottom: 1.75rem;
-  border-bottom: 1px solid rgb(255 255 255 / 0.1);
-}
-
-.home-archive__month + .home-archive__month {
-  margin-top: 2rem;
-}
-
-.home-archive__month h2,
-.blog-archive__month h2 {
-  margin-bottom: 1rem;
-  color: rgb(229 231 235);
-  font-size: clamp(1.2rem, 3vw, 1.75rem);
   text-transform: capitalize;
 }
 
-.home-archive__month h2 {
-  margin: 0 0 1.25rem;
-  color: rgb(241 245 249);
-  font-size: clamp(1.5rem, 3vw, 2rem);
+.home__timeline {
+  position: sticky;
+  top: 5rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid currentColor;
+  border-color: rgb(127 127 127 / 0.35);
+  border-radius: 0.5rem;
 }
 
-.home-archive__posts,
-.blog-archive__posts {
-  margin: 0;
-}
+.home__timeline h3 { margin: 0.75rem 0 0.25rem; font-weight: 600; }
+.home__timeline ul { margin: 0; padding: 0; list-style: none; }
+.home__timeline li { padding: 0.15rem 0; text-transform: capitalize; }
 
-.home-archive__posts {
-  padding-left: 1.5rem;
-}
-
-.home-archive__posts li + li {
-  margin-top: 0.8rem;
-}
-
-.home-archive__posts a {
-  color: rgb(56 189 248);
-  font-size: clamp(1rem, 2vw, 1.15rem);
-}
-
-.blog-archive__post {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
+/* Lista de posts (home e /blog) */
+.post-list { margin: 0 0 2rem; padding: 0; list-style: none; }
+.post-list li {
+  display: flex;
   gap: 1rem;
   align-items: baseline;
-  padding: 0.9rem 1rem;
-  border: 1px solid rgb(255 255 255 / 0.08);
-  border-radius: 0.75rem;
-  background: rgb(255 255 255 / 0.03);
-  text-align: left;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgb(127 127 127 / 0.2);
 }
+.post-list time { flex: none; font-size: 0.85rem; opacity: 0.65; font-variant-numeric: tabular-nums; }
 
-.blog-archive__post time {
-  color: rgb(156 163 175);
-  font-size: 0.85rem;
-  white-space: nowrap;
-}
+.home a,
+.blog-archive a { text-decoration: none; }
+.home a:hover,
+.blog-archive a:hover { text-decoration: underline; }
 
-.blog-archive__post a {
-  color: rgb(56 189 248);
-  font-weight: 600;
-  text-decoration: none;
-}
+.blog-archive h1 { margin-bottom: 2rem; font-size: 2rem; font-weight: 700; }
 
-.blog-archive__post a:hover {
-  text-decoration: underline;
+/* Rodapé */
+.site-footer {
+  margin-top: auto;
+  border-top: 1px solid rgb(127 127 127 / 0.3);
 }
+.site-footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  width: min(100%, 90rem);
+  margin-inline: auto;
+  padding: 1.25rem 1.5rem;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+.site-footer__links { display: flex; gap: 1.25rem; align-items: center; }
+.site-footer__links a:hover { text-decoration: underline; }
 
 @media (max-width: 768px) {
-  .hextra-nav-container nav > a:first-of-type span {
-    font-size: clamp(1.25rem, 7vw, 2rem);
-  }
-
-  .hextra-nav-container .hextra-search-wrapper {
-    width: min(10rem, 38vw) !important;
-    min-width: min(10rem, 38vw);
-  }
-
-  .home-archive {
-    display: block;
-  }
-
-  .home-archive__toc {
-    position: static;
-    margin-bottom: 2rem;
-    padding: 0 0 1.25rem;
-    border-right: 0;
-    border-bottom: 1px solid rgb(255 255 255 / 0.1);
-  }
-
-  .blog-archive__post {
-    grid-template-columns: 1fr;
-    gap: 0.35rem;
-    text-align: center;
-  }
+  .home { grid-template-columns: 1fr; gap: 2rem; }
+  .home__timeline { position: static; }
+  .site-footer__inner { flex-direction: column; text-align: center; }
 }
