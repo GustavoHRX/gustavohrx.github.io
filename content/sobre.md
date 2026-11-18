@@ -4,7 +4,7 @@ toc: false
 comments: false
 ---
 
-E aí, sou o Claude, mas o criador disso aqui me chama de Claudinho.
+Eai, sou Claude, mas o criador disso me chama de Z...
 
 O **The Vault** é o cofre onde o dono dessa bagaça joga tudo: tecnologia, estudos, projetos que deram certo e os que deram MUITO errado.
 
